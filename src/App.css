@@ -1,0 +1,424 @@
+.App {
+    text-align: center;
+}
+
+.teamsList {
+    box-shadow: 0 0 10px rgb(0 0 0);
+}
+
+.teamListLogo {
+    margin-right: 10px;
+    display: inline;
+}
+
+.zoom {
+    padding: 10px;
+    transition: transform 0.5s;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.5);
+    /* IE 9 */
+    -webkit-transform: scale(1.5);
+    /* Safari 3-8 */
+    transform: scale(1.5);
+    /* border-radius: 50%;
+    box-shadow: 0 0 25px rgb(255, 240, 240); */
+    /* color: rgb(255, 255, 255);
+    border-bottom: dotted;
+    border-width: 1px; */
+}
+
+#card {
+    margin-top: 10px;
+    margin-right: 5px;
+    background-color: #22283167;
+    height: 15rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.7);
+    color: rgb(2, 0, 0);
+}
+
+#card__name {
+    margin-top: 15px;
+    font-size: 1.5em;
+}
+
+.card__image:hover {
+    -ms-transform: scale(1.5);
+    transition-delay: 0.2s;
+    /* IE 9 */
+    -webkit-transform: scale(1.5);
+    /* Safari 3-8 */
+    transform: scale(1.5);
+}
+
+.card__image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid #272133;
+    margin-top: 5px;
+    box-shadow: 0 10px 50px rgb(255, 255, 255);
+}
+
+#card .draw-border {
+    box-shadow: inset 0 0 0 4px #58cdd1;
+    color: #58afd1;
+    -webkit-transition: color 0.25s 0.0833333333s;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+}
+
+#card .draw-border::before,
+#card .draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0rem;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#card .draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+
+#card .draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+
+#card .draw-border:hover {
+    color: #ffe593;
+}
+
+#card .draw-border:hover::before,
+#card .draw-border:hover::after {
+    border-color: #eb196e;
+    -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+
+#card .draw-border:hover::before {
+    -webkit-transition-delay: 0s, 0s, 0.25s;
+    transition-delay: 0s, 0s, 0.25s;
+}
+
+#card .draw-border:hover::after {
+    -webkit-transition-delay: 0s, 0.25s, 0s;
+    transition-delay: 0s, 0.25s, 0s;
+}
+
+#card .btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem "Roboto Slab", sans-serif;
+    padding: 0.75em 2em;
+    letter-spacing: 0.05rem;
+    margin: 1em;
+    width: 13rem;
+}
+
+#card .btn:hover {
+    outline: 2px dotted #55d7dc;
+}
+
+.roller {
+    width: 40px;
+    height: 40px;
+}
+
+.roller img {
+    float: left;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    -webkit-transition: 1s Ease;
+}
+
+.roller:hover img {
+    -webkit-transform: translate(850px, 0px) rotate(360deg);
+}
+
+.playerstat__details {
+    width: 250px;
+    height: 330px;
+    /* width: 60%;
+    height: 80%;
+    max-height: 300px; */
+    padding: auto;
+    text-align: center;
+    background: #242625;
+    border-radius: 10px;
+    /* box-shadow: 5 5 5px #1b1c1b, -5 -5 5px #2d302f; */
+}
+
+.playerstat__content {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    background: #191a19;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+    /* box-shadow: 5px 5px 5px #ff6d6d, -5px -5px 5px #282a28; */
+    transition: 0.3s all ease-in-out;
+}
+
+#boxShadowCardRed {
+    box-shadow: 5px 5px 5px #ff6d6d, -5px -5px 5px #282a28;
+}
+
+#boxShadowCardYellow {
+    box-shadow: 5px 5px 5px #ffe771, -5px -5px 5px #282a28;
+}
+
+#boxShadowCardBlue {
+    box-shadow: 5px 5px 5px #5ee7fd, -5px -5px 5px #282a28;
+}
+
+#boxShadowCardGreen {
+    box-shadow: 5px 5px 5px #94fd5e, -5px -5px 5px #282a28;
+}
+
+.playerstat_container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    color: white;
+}
+
+.playerstats_container {
+    /* position: absolute; */
+    width: 10%;
+    height: 10%;
+    background: #2c302d;
+}
+
+.playerstat__content:hover {
+    margin-top: -10px;
+}
+
+.playerstat_header {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+.item {
+    border-bottom: 1px dotted #eee;
+}
+
+.box_conatiner {
+    display: contents;
+    width: 150px;
+    height: 250px;
+}
+
+.wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.box {
+    margin: 20px;
+    width: 250px;
+    text-align: center;
+    border-radius: 3px;
+    transition: 200ms ease-in-out;
+    box-shadow: 0 0 15px rgb(0 0 0 / 30%);
+}
+
+.box:hover {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.box h1 {
+    color: #fff;
+    /* padding: 20px; */
+    margin-top: 100px;
+    text-align: center;
+    /* font-weight: 100; */
+    font-size: 15px;
+    background: rgb(153 150 150 / 80%);
+    box-shadow: 0 0 30px rgb(152 152 152 / 80%);
+}
+
+.poster {
+    width: 50px;
+    height: 50px;
+    /* margin: 120px auto; */
+    position: relative;
+    border-radius: 100px;
+}
+
+.poster h4 {
+    top: 8px;
+    color: #fff;
+    position: relative;
+    /* font-size: 80px; */
+    /* text-align: center; */
+    font-weight: 100;
+}
+
+
+/* .one {
+    background: url("https://source.unsplash.com/900x920");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+} */
+
+.p1 {
+    background: #2b5876;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-gradient( linear, left top, right top, from(#ff5b5b), to(#2b5876));
+    background: -webkit-linear-gradient(left, #4e4376, #2b5876);
+    background: -o-linear-gradient(left, #4e4376, #2b5876);
+    background: linear-gradient(to right, #120e1e, #fdfdfd);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* -webkit-box-shadow: 0 0 20px darkblue; */
+    /* box-shadow: 0 0 20px #f00a0a; */
+}
+
+#numberBoxShadowRed {
+    box-shadow: 0 0 20px #f00a0a;
+}
+
+#numberBoxShadowYellow {
+    box-shadow: 0 0 20px #ffeb00;
+}
+
+#numberBoxShadowGreen {
+    box-shadow: 0 0 20px #4dff13;
+}
+
+#numberBoxShadowBlue {
+    box-shadow: 0 0 20px #2a87fa;
+}
+
+#playerStatsLoader {
+    -webkit-animation: fadein 2s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s;
+    /* Firefox < 16 */
+    -ms-animation: fadein 2s;
+    /* Internet Explorer */
+    -o-animation: fadein 2s;
+    /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+#loadEffectShow {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+
+#loadEffectHide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Firefox < 16 */
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Safari, Chrome and Opera > 12.1 */
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Internet Explorer */
+
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Opera < 12.1 */
+
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
