@@ -14,7 +14,9 @@ const Navbar = () => {
             />
           </nav>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <p className="homeText">Shoot Me Home!</p>
+            <div className="row">
+              <p className="homeText">Shoot Me Home!</p>
+            </div>
           </Link>
         </div>
       </div>

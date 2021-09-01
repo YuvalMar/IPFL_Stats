@@ -8,6 +8,7 @@ import axios from "axios";
 const Players = ({ match }) => {
   const [players, setPlayers] = useState([]);
   const [color, setColor] = useState("");
+  const port = process.env.PORT || 3001;
 
   useEffect(() => {
     getPlayersData(match.params.id);
@@ -15,7 +16,7 @@ const Players = ({ match }) => {
 
   const getPlayersData = async (id) => {
     try {
-      let res = await axios.get(`http://localhost:3001/players/${id}`);
+      let res = await axios.get(`http://localhost:${port}/players/${id}`);
       const playersDataArray = JSON.parse(JSON.stringify(res.data));
       setPlayers(playersDataArray, players);
       getTeamColor(match.params.id);
@@ -25,7 +26,7 @@ const Players = ({ match }) => {
   };
   const getTeamColor = async (id) => {
     try {
-      let res = await axios.get(`http://localhost:3001/teams/${id}`);
+      let res = await axios.get(`http://localhost:${port}/teams/${id}`);
       const data = JSON.parse(JSON.stringify(res.data));
       setColor(
         data.map((Team) => Team.color),

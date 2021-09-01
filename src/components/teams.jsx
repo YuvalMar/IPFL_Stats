@@ -6,6 +6,7 @@ import axios from "axios";
 const Teams = (props) => {
   const [teams, setTeam] = useState([]);
   const [chosen, setChosen] = useState("");
+  const port = process.env.PORT || 3001;
 
   useEffect(() => {
     setChosen(props.teamChosen, chosen);
@@ -14,7 +15,7 @@ const Teams = (props) => {
 
   const getTeams = async () => {
     try {
-      let res = await axios.get("http://localhost:3001/teams");
+      let res = await axios.get(`http://localhost:${port}/teams`);
       const teamsArray = JSON.parse(JSON.stringify(res.data));
       setTeam(teamsArray, teams);
     } catch (error) {

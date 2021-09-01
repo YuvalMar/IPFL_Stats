@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import playerStatsData from "../data/playerStats";
 import Teams from "./teams";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleRight } from "@fortawesome/fontawesome-free-solid";
@@ -12,6 +11,7 @@ import axios from "axios";
 const PlayerStats = ({ match }) => {
   const [playerstats, setPlayerStats] = useState([]);
   const [color, setColor] = useState("");
+  const port = process.env.PORT || 3001;
 
   useEffect(() => {
     getPlayerStats(match.params.id);
@@ -19,7 +19,7 @@ const PlayerStats = ({ match }) => {
 
   const getPlayerStats = async (id) => {
     try {
-      let res = await axios.get(`http://localhost:3001/playerStats/${id}`);
+      let res = await axios.get(`http://localhost:${port}/playerStats/${id}`);
       const playStatsArray = JSON.parse(JSON.stringify(res.data));
       setPlayerStats(playStatsArray, playerstats);
       getTeamColor(playStatsArray.teamId);
@@ -29,7 +29,7 @@ const PlayerStats = ({ match }) => {
   };
   const getTeamColor = async (id) => {
     try {
-      let res = await axios.get(`http://localhost:3001/teams/${id}`);
+      let res = await axios.get(`http://localhost:${port}/teams/${id}`);
       const data = JSON.parse(JSON.stringify(res.data));
       setColor(
         data.map((Team) => Team.color),
