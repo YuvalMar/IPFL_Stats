@@ -7,6 +7,7 @@ import axios from "axios";
 
 const Players = ({ match }) => {
   const [players, setPlayers] = useState([]);
+  const [color, setColor] = useState("");
 
   useEffect(() => {
     getPlayersData(match.params.id);
@@ -17,6 +18,19 @@ const Players = ({ match }) => {
       let res = await axios.get(`http://localhost:3001/players/${id}`);
       const playersDataArray = JSON.parse(JSON.stringify(res.data));
       setPlayers(playersDataArray, players);
+      getTeamColor(match.params.id);
+    } catch (error) {
+      console.log(error.daata);
+    }
+  };
+  const getTeamColor = async (id) => {
+    try {
+      let res = await axios.get(`http://localhost:3001/teams/${id}`);
+      const data = JSON.parse(JSON.stringify(res.data));
+      setColor(
+        data.map((Team) => Team.color),
+        color
+      );
     } catch (error) {
       console.log(error.daata);
     }
@@ -24,18 +38,28 @@ const Players = ({ match }) => {
 
   return (
     <React.Fragment>
-      <Teams teamChosen={match.params.id}></Teams>
-      <div class="container">
-        <div class="row">
+      <div className="row">
+        <Teams teamChosen={match.params.id}></Teams>
+      </div>
+      <div className="container">
+        <div className="row">
           {players.map((player) => (
-            <div class="col-sm" id="card">
-              <div class="test">
+            <div className="col-sm" id="card">
+              <div className="test">
                 <img
                   src={`${player.img}`}
                   alt="Person"
-                  class="card__image"
+                  className="card__image"
+                  id={`numberBoxShadow${color}`}
                 ></img>
-                <p class="card__name">
+                <p
+                  className="card__name"
+                  style={{
+                    fontFamily: "arial",
+                    paddingTop: "5px",
+                    color: "white",
+                  }}
+                >
                   {player.name.length < 20
                     ? player.name
                     : player.name.split(" ")[0] +
@@ -47,7 +71,7 @@ const Players = ({ match }) => {
                   <span> #{player.shirtNumber}</span>
                 </p>
                 <Link to={`../playerStats/${player.id}`}>
-                  <button class="btn draw-border">Stats</button>
+                  <button className="btn draw-border">Stats</button>
                 </Link>
               </div>
             </div>

@@ -12,7 +12,6 @@ import axios from "axios";
 const PlayerStats = ({ match }) => {
   const [playerstats, setPlayerStats] = useState([]);
   const [color, setColor] = useState("");
-  const [numberColor, setNumColor] = useState("");
 
   useEffect(() => {
     getPlayerStats(match.params.id);

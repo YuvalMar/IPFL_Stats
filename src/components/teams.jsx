@@ -2,8 +2,6 @@ import React from "react";
 import Team from "./team";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import teamsArray from "../data/teamsDataTry";
-import playersArray from "../data/playersData";
 
 const Teams = (props) => {
   const [teams, setTeam] = useState([]);
@@ -25,20 +23,24 @@ const Teams = (props) => {
   };
 
   return (
-    <ul className="teamsList">
-      {teams.map((teamCurr) => (
-        <li className="teamListLogo">
-          {" "}
-          <Team
-            isChoosed={teamCurr.teamID == props.teamChosen}
-            img={teamCurr.picture}
-            key={teamCurr.name}
-            name={teamCurr.name}
-            teamId={teamCurr.teamID}
-          ></Team>{" "}
-        </li>
-      ))}
-    </ul>
+    <React.Fragment>
+      <div className="d-inline">
+        <ul className="teamsList">
+          {teams.map((teamCurr) => (
+            <li className="teamListLogo">
+              {" "}
+              <Team
+                isChoosed={teamCurr.teamID == props.teamChosen}
+                img={teamCurr.picture}
+                key={teamCurr.name}
+                name={teamCurr.name}
+                teamId={teamCurr.teamID}
+              ></Team>{" "}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </React.Fragment>
   );
 };
 

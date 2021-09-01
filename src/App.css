@@ -63,14 +63,13 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    border: 2px solid #272133;
+    border: 2px solid #ffffffb0;
     margin-top: 5px;
-    box-shadow: 0 10px 50px rgb(255, 255, 255);
 }
 
 #card .draw-border {
-    box-shadow: inset 0 0 0 4px #58cdd1;
-    color: #58afd1;
+    box-shadow: inset 0 0 0 1px;
+    color: #ffffff;
     -webkit-transition: color 0.25s 0.0833333333s;
     transition: color 0.25s 0.0833333333s;
     position: relative;
@@ -100,12 +99,12 @@
 }
 
 #card .draw-border:hover {
-    color: #ffe593;
+    /* color: #ffe593; */
 }
 
 #card .draw-border:hover::before,
 #card .draw-border:hover::after {
-    border-color: #eb196e;
+    border-color: #000000;
     -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
     transition: border-color 0s, width 0.25s, height 0.25s;
     width: 100%;
@@ -135,7 +134,7 @@
 }
 
 #card .btn:hover {
-    outline: 2px dotted #55d7dc;
+    outline: 2px dotted #ffffff;
 }
 
 .roller {
@@ -421,4 +420,74 @@
     to {
         opacity: 0;
     }
+}
+
+.welcomeRow {
+    color: #000000;
+    font-family: "Times New Roman", serif;
+    font-size: 36px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 44px;
+    margin: 0 0 12px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+blockquote {
+    border-left: none;
+}
+
+.quote-badge {
+    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.quote-box {
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 50px;
+    padding-top: -25px;
+    border-radius: 17px;
+    background-color: #000000a1;
+    color: white;
+    width: 350px;
+    box-shadow: 2px 2px 2px 2px #d7b351;
+    text-align: center;
+}
+
+.quotation-mark {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 100px;
+    color: white;
+    font-family: "Times New Roman", Times, Serif;
+}
+
+.quote-text {
+    margin-left: 5px;
+    font-size: 19px;
+    margin-top: -60px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+}
+
+.blog-post-bottom {
+    background: #fff2f20a;
+    color: #d7b351;
+}
+
+.imgContainer {
+    text-align: left;
+}
+
+.imgContainer p {
+    clear: left;
+    display: block;
+    margin-bottom: 2px;
+    margin-top: -15px;
+}
+
+.homeText {
+    color: white;
 }
