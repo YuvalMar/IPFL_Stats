@@ -1,6 +1,5 @@
 import "./App.css";
 import players from "./components/players";
-import Teams from "./components/teams";
 import React from "react";
 import playerStats from "./components/playerStats";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -8,10 +7,6 @@ import Navbar from "./components/navbar";
 import home from "./components/home";
 
 function App() {
-  const path =
-    "https://static.football.co.il/wp-content/themes/kingclub-theme/images/teams/";
-  const pictures = ["14316.png", "4563.png", "4554.png", "4563.png"];
-  const styleDis = { display: "inline" };
   const formatPictures = () => {
     return (
       <React.Fragment>
@@ -24,17 +19,6 @@ function App() {
           </Switch>
         </Router>
       </React.Fragment>
-      // <ul>
-      //   {pictures.map((picture) => (
-      //     <li style={styleDis} key={picture}>
-      //       <img
-      //         src={`${path}${picture}`}
-      //         alt="abba"
-      //         style={{ width: "80px", height: "80px" }}
-      //       ></img>
-      //     </li>
-      //   ))}
-      // </ul>
     );
   };
 

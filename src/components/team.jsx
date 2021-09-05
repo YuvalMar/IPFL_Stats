@@ -1,7 +1,6 @@
 import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
-import players from "./players";
 import { useState, useEffect } from "react";
 
 const Team = (props) => {
@@ -19,14 +18,8 @@ const Team = (props) => {
         styleLogo
       );
     } else setStyle({ width: "80px", height: "80px" }, styleLogo);
+    // eslint-disable-next-line
   }, [props]);
-
-  const chosenStyle = {
-    width: "80px",
-    height: "80px",
-    borderRadius: "50%",
-    boxShadow: "0 0 25px #ccc",
-  };
 
   return (
     <React.Fragment>

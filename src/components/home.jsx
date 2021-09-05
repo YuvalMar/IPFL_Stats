@@ -13,14 +13,14 @@ const Home = () => {
             Welcome To Israeli Premier League Stats!
           </h1>
         </div>
-        <blockquote class="quote-box">
-          <p class="quotation-mark">“</p>
-          <p class="quote-text">
+        <blockquote className="quote-box">
+          <p className="quotation-mark">“</p>
+          <p className="quote-text">
             That's how people that don't understand football analyse football.
           </p>
 
-          <div class="blog-post-actions">
-            <p class="blog-post-bottom">- Jose Mourinho -</p>
+          <div className="blog-post-actions">
+            <p className="blog-post-bottom">- Jose Mourinho -</p>
           </div>
         </blockquote>
       </div>

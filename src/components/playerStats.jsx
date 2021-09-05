@@ -15,6 +15,7 @@ const PlayerStats = ({ match }) => {
 
   useEffect(() => {
     getPlayerStats(match.params.id);
+    // eslint-disable-next-line
   }, [match.params.id]);
 
   const getPlayerStats = async (id) => {
@@ -42,7 +43,7 @@ const PlayerStats = ({ match }) => {
 
   const keysMapping = (type) => {
     const keys = Object.keys(playerstats).filter(
-      (key) => key != "img" && key != "id" && key != "teamId"
+      (key) => key !== "img" && key !== "id" && key !== "teamId"
     );
     const zerokeys = keys.filter((key) => key.includes(type));
     return zerokeys;
@@ -69,6 +70,8 @@ const PlayerStats = ({ match }) => {
         iconString = faShieldAlt;
         header = "Defense";
         break;
+      default:
+        break;
     }
     return (
       <div className="col-3">
@@ -81,7 +84,7 @@ const PlayerStats = ({ match }) => {
                 </div>
                 <h3 className="playerstat_header">{header}</h3>
                 {keysMapping(type).map((key) => (
-                  <div className="row">
+                  <div key={key} className="row">
                     <p className="item">
                       {" "}
                       {key

@@ -10,30 +10,30 @@ const Teams = (props) => {
 
   useEffect(() => {
     setChosen(props.teamChosen, chosen);
-    getTeams();
-  }, [props.teamChosen]);
+    const getTeams = async () => {
+      try {
+        let res = await axios.get(`http://localhost:${port}/teams`);
+        const teamsArray = JSON.parse(JSON.stringify(res.data));
+        setTeam(teamsArray, teams);
+      } catch (error) {
+        console.log(error.daata);
+      }
+    };
 
-  const getTeams = async () => {
-    try {
-      let res = await axios.get(`http://localhost:${port}/teams`);
-      const teamsArray = JSON.parse(JSON.stringify(res.data));
-      setTeam(teamsArray, teams);
-    } catch (error) {
-      console.log(error.daata);
-    }
-  };
+    getTeams();
+    // eslint-disable-next-line
+  }, [props.teamChosen]);
 
   return (
     <React.Fragment>
       <div className="d-inline">
         <ul className="teamsList">
           {teams.map((teamCurr) => (
-            <li className="teamListLogo">
+            <li key={teamCurr.name} className="teamListLogo">
               {" "}
               <Team
-                isChoosed={teamCurr.teamID == props.teamChosen}
+                isChoosed={teamCurr.teamID === props.teamChosen}
                 img={teamCurr.picture}
-                key={teamCurr.name}
                 name={teamCurr.name}
                 teamId={teamCurr.teamID}
               ></Team>{" "}

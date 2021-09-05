@@ -1,5 +1,4 @@
 import React from "react";
-import playersArray from "../data/playersData";
 import { useState, useEffect } from "react";
 import Teams from "./teams";
 import { Link } from "react-router-dom";
@@ -12,6 +11,7 @@ const Players = ({ match }) => {
 
   useEffect(() => {
     getPlayersData(match.params.id);
+    // eslint-disable-next-line
   }, [match.params.id]);
 
   const getPlayersData = async (id) => {
@@ -45,7 +45,7 @@ const Players = ({ match }) => {
       <div className="container">
         <div className="row">
           {players.map((player) => (
-            <div className="col-sm" id="card">
+            <div key={player.id} className="col-sm" id="card">
               <div className="test">
                 <img
                   src={`${player.img}`}

@@ -7,7 +7,7 @@ const Navbar = () => {
     <React.Fragment>
       <div className="row">
         <div className="imgContainer">
-          <nav class="roller">
+          <nav className="roller">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg"
               alt="Football"
