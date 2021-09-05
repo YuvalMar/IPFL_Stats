@@ -9,6 +9,7 @@ const Teams = (props) => {
   const port = process.env.PORT || 3001;
 
   useEffect(() => {
+    console.log("port is " + port);
     setChosen(props.teamChosen, chosen);
     const getTeams = async () => {
       try {
