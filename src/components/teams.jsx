@@ -13,7 +13,7 @@ const Teams = (props) => {
     setChosen(props.teamChosen, chosen);
     const getTeams = async () => {
       try {
-        let res = await axios.get(`http://localhost:${port}/teams`);
+        let res = await axios.get(`https://ipflserver.herokuapp.com/teams`);
         const teamsArray = JSON.parse(JSON.stringify(res.data));
         setTeam(teamsArray, teams);
       } catch (error) {

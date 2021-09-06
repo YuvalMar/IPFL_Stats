@@ -16,7 +16,9 @@ const Players = ({ match }) => {
 
   const getPlayersData = async (id) => {
     try {
-      let res = await axios.get(`http://localhost:${port}/players/${id}`);
+      let res = await axios.get(
+        `https://ipflserver.herokuapp.com/players/${id}`
+      );
       const playersDataArray = JSON.parse(JSON.stringify(res.data));
       setPlayers(playersDataArray, players);
       getTeamColor(match.params.id);
@@ -26,7 +28,7 @@ const Players = ({ match }) => {
   };
   const getTeamColor = async (id) => {
     try {
-      let res = await axios.get(`http://localhost:${port}/teams/${id}`);
+      let res = await axios.get(`https://ipflserver.herokuapp.com/teams/${id}`);
       const data = JSON.parse(JSON.stringify(res.data));
       setColor(
         data.map((Team) => Team.color),
