@@ -7,7 +7,6 @@ import axios from "axios";
 const Players = ({ match }) => {
   const [players, setPlayers] = useState([]);
   const [color, setColor] = useState("");
-  const port = process.env.PORT || 3001;
 
   useEffect(() => {
     getPlayersData(match.params.id);

@@ -6,7 +6,6 @@ import axios from "axios";
 const Teams = (props) => {
   const [teams, setTeam] = useState([]);
   const [chosen, setChosen] = useState("");
-  const port = process.env.PORT || 3001;
 
   useEffect(() => {
     console.log("port is " + port);
