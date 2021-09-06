@@ -8,7 +8,6 @@ const Teams = (props) => {
   const [chosen, setChosen] = useState("");
 
   useEffect(() => {
-    console.log("port is " + port);
     setChosen(props.teamChosen, chosen);
     const getTeams = async () => {
       try {
