@@ -75,7 +75,7 @@ const PlayerStats = ({ match }) => {
         break;
     }
     return (
-      <div className="col-3">
+      <div className="col-sm-3">
         <div className="playerstats_container">
           <div className="playerstat_container">
             <div className="playerstat__details">
@@ -85,7 +85,7 @@ const PlayerStats = ({ match }) => {
                 </div>
                 <h3 className="playerstat_header">{header}</h3>
                 {keysMapping(type).map((key) => (
-                  <div key={key} className="row">
+                  <div key={key}>
                     <p className="item">
                       {" "}
                       {key
@@ -134,11 +134,13 @@ const PlayerStats = ({ match }) => {
 
       <div className="container" id="playerStatsLoader">
         {mapPlayerDetails()}
-        <div className="row">
-          {mapStats("1")}
-          {mapStats("2")}
-          {mapStats("3")}
-          {mapStats("4")}
+        <div className="container">
+          <div className="row">
+            {mapStats("1")}
+            {mapStats("2")}
+            {mapStats("3")}
+            {mapStats("4")}
+          </div>
         </div>
       </div>
     </React.Fragment>

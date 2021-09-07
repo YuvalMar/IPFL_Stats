@@ -138,6 +138,7 @@
 }
 
 .roller {
+    margin-left: 10px;
     width: 40px;
     height: 40px;
 }
@@ -215,6 +216,7 @@
 }
 
 .playerstat__content:hover {
+    cursor: default;
     margin-top: -10px;
 }
 
@@ -342,6 +344,7 @@
     -o-animation: fadein 2s;
     /* Opera < 12.1 */
     animation: fadein 2s;
+    margin-top: -15px;
 }
 
 #loadEffectShow {
@@ -489,5 +492,6 @@ blockquote {
 }
 
 .homeText {
+    margin-left: 10px;
     color: white;
 }
