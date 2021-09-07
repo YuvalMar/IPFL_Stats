@@ -1,6 +1,6 @@
 import React from "react";
 import Teams from "./teams";
-
+// Home page component-buil
 const Home = () => {
   return (
     <div>
