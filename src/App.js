@@ -7,7 +7,7 @@ import Navbar from "./components/navbar";
 import home from "./components/home";
 
 function App() {
-  const formatPictures = () => {
+  const renderApp = () => {
     return (
       <React.Fragment>
         <Router>
@@ -22,7 +22,7 @@ function App() {
     );
   };
 
-  return <div className="App">{formatPictures()}</div>;
+  return <div className="App">{renderApp()}</div>;
 }
 
 export default App;

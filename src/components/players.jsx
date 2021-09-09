@@ -4,6 +4,7 @@ import Teams from "./teams";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+// Players Component
 const Players = ({ match }) => {
   const [players, setPlayers] = useState([]);
   const [color, setColor] = useState("");
@@ -13,6 +14,7 @@ const Players = ({ match }) => {
     // eslint-disable-next-line
   }, [match.params.id]);
 
+  // Function to get the relevant players data based on the teamId
   const getPlayersData = async (id) => {
     try {
       let res = await axios.get(
@@ -25,6 +27,7 @@ const Players = ({ match }) => {
       console.log(error.daata);
     }
   };
+  // Get the relevant team color based on the teamId
   const getTeamColor = async (id) => {
     try {
       let res = await axios.get(`https://ipflserver.herokuapp.com/teams/${id}`);

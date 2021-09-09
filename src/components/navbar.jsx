@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import "bootstrap/dist/css/boostrap.min.css";
-
+// Navbar Component
 const Navbar = () => {
   return (
     <React.Fragment>

@@ -1,6 +1,6 @@
 import React from "react";
 import Teams from "./teams";
-// Home page component-buil
+// Home page component
 const Home = () => {
   return (
     <div>
@@ -24,6 +24,14 @@ const Home = () => {
           </div>
         </blockquote>
       </div>
+      <footer className="row" id="footerStyle">
+        <div
+          className="text-left p-3"
+          style={{ fontSize: "10px", color: "white" }}
+        >
+          © Copyright: Official IPFL Website.
+        </div>
+      </footer>
     </div>
   );
 };

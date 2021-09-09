@@ -9,6 +9,7 @@ const Teams = (props) => {
 
   useEffect(() => {
     setChosen(props.teamChosen, chosen);
+    // Get all the teams data
     const getTeams = async () => {
       try {
         let res = await axios.get(`https://ipflserver.herokuapp.com/teams`);

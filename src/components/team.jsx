@@ -21,6 +21,7 @@ const Team = (props) => {
     // eslint-disable-next-line
   }, [props]);
 
+  // Conditional rendering of img style based on the selected team
   return (
     <React.Fragment>
       <Link to={`../players/${props.teamId}`}>

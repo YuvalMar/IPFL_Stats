@@ -8,6 +8,7 @@ import { faChartLine } from "@fortawesome/fontawesome-free-solid";
 import { faHandsHelping } from "@fortawesome/fontawesome-free-solid";
 import axios from "axios";
 
+// Playerstats component
 const PlayerStats = ({ match }) => {
   const [playerstats, setPlayerStats] = useState([]);
   const [color, setColor] = useState("");
@@ -17,6 +18,7 @@ const PlayerStats = ({ match }) => {
     // eslint-disable-next-line
   }, [match.params.id]);
 
+  // Get the relevant player data based on his Id
   const getPlayerStats = async (id) => {
     try {
       let res = await axios.get(
@@ -29,6 +31,7 @@ const PlayerStats = ({ match }) => {
       console.log(error.data);
     }
   };
+  // Get the relevant team color based on the teamId
   const getTeamColor = async (id) => {
     try {
       let res = await axios.get(`https://ipflserver.herokuapp.com/teams/${id}`);
@@ -42,6 +45,7 @@ const PlayerStats = ({ match }) => {
     }
   };
 
+  // Map only the relevant keys
   const keysMapping = (type) => {
     const keys = Object.keys(playerstats).filter(
       (key) => key !== "img" && key !== "id" && key !== "teamId"
@@ -50,10 +54,11 @@ const PlayerStats = ({ match }) => {
     return zerokeys;
   };
 
+  //Map the stats to four cards
+  // 1- Regular Numbers stats 2-Passing stats 3-Attacking stats 4-Defensive stats
   const mapStats = (type) => {
     let iconString;
     let header;
-    //TODO** Map Color By Team let boxShadowColor;
     switch (type) {
       case "1":
         iconString = faChartLine;
@@ -104,8 +109,8 @@ const PlayerStats = ({ match }) => {
     );
   };
 
+  // Map the player details
   const mapPlayerDetails = () => {
-    //**TODO-> MAP NumberBoxShadow according to team color */
     return (
       <div className="box_conatiner">
         <div className="wrap">
